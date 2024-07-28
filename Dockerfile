@@ -10,11 +10,11 @@ RUN apt-get update \
     && apt-get purge --yes curl ca-certificates \
     && apt-get autoremove --yes
 
-ENV DB_HOST localhost
-ENV DB_PORT 3306
-ENV DB_NAME default
-ENV DB_USER mysql
-ENV DB_PASSWORD mysql
+ENV DB_HOST=localhost
+ENV DB_PORT=3306
+ENV DB_NAME=default
+ENV DB_USER=mysql
+ENV DB_PASSWORD=mysql
 
 COPY mysql.sh /root/mysql.sh
 ENTRYPOINT ["/root/mysql.sh"]
