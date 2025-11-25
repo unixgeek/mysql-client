@@ -1,11 +1,11 @@
-FROM debian:bookworm-20240722-slim
+FROM debian:bookworm-20251117-slim
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends curl ca-certificates \
-    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client_8.0.39-1debian12_amd64.deb  \
-    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-core_8.0.39-1debian12_amd64.deb \
-    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-plugins_8.0.39-1debian12_amd64.deb \
-    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-common_8.0.39-1debian12_amd64.deb \
+    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client_8.0.44-1debian12_amd64.deb  \
+    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-core_8.0.44-1debian12_amd64.deb \
+    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-community-client-plugins_8.0.44-1debian12_amd64.deb \
+    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-common_8.0.44-1debian12_amd64.deb \
     && dpkg -i *.deb \
     && apt-get purge --yes curl ca-certificates \
     && apt-get autoremove --yes
