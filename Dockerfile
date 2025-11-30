@@ -21,10 +21,6 @@ COPY --from=builder /usr/local/mysql/bin/mysql /
 COPY --from=builder /lib/x86_64-linux-gnu/libtinfo.so.6.4 /mysql-libs/libtinfo.so.6
 
 ENV LD_LIBRARY_PATH=/mysql-libs
-ENV MYSQL_HOST=localhost
-ENV MYSQL_TCP_PORT=3306
-ENV USER=mysql
-ENV MYSQL_PWD=root
 
 ENTRYPOINT ["/mysql", "--protocol=tcp"]
 CMD ["--help"]
