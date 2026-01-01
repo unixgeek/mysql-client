@@ -1,4 +1,4 @@
-FROM debian:bookworm-20251117-slim AS builder
+FROM debian:bookworm-20251229-slim AS builder
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends bison build-essential cmake curl ca-certificates libncurses-dev libssl-dev libudev-dev pkg-config \
