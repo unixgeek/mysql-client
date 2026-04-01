@@ -2,8 +2,8 @@ FROM debian:bookworm-20260316-slim AS builder
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends bison build-essential cmake curl ca-certificates libncurses-dev libssl-dev libudev-dev pkg-config \
-    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-boost-8.0.44.tar.gz  \
-    && tar -xzf mysql-boost-8.0.44.tar.gz \
+    && curl --location --remote-name https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-boost-8.0.45.tar.gz  \
+    && tar -xzf mysql-boost-8.0.45.tar.gz \
     && curl --remote-name https://archives.boost.io/release/1.77.0/source/boost_1_77_0.tar.bz2 \
     && tar -xjf boost_1_77_0.tar.bz2 \
     && cd boost_1_77_0 \
@@ -12,7 +12,7 @@ RUN apt-get update \
     && ./b2 install \
     && mkdir /build \
     && cd /build \
-    && cmake -DCMAKE_BUILD_TYPE=Release -DWITHOUT_SERVER=1 -DWITH_LTO=1 -DWITH_UNIT_TESTS=0  ../mysql-8.0.44 \
+    && cmake -DCMAKE_BUILD_TYPE=Release -DWITHOUT_SERVER=1 -DWITH_LTO=1 -DWITH_UNIT_TESTS=0  ../mysql-8.0.45 \
     && make install
 
 FROM gcr.io/distroless/cc-debian12:nonroot AS final
